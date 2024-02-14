@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NewNoteInput } from "./NewNoteInput";
 import { addNote } from "./actions";
-import { saveNotes } from "./notesReducer";
+import { saveNotes, loadNotes } from "./notesReducer";
 
 function App() {
   const notes = useSelector((state) => state.notes);
@@ -10,6 +10,14 @@ function App() {
 
   const onAddNote = (note) => {
     dispatch(addNote(note));
+  };
+
+  const onSave = () => {
+    dispatch(saveNotes());
+  };
+
+  const onLoad = () => {
+    dispatch(loadNotes());
   };
 
   return (
@@ -23,8 +31,8 @@ function App() {
         })}
       </ul>
       <br />
-      <button>Save</button>
-      <button>Load</button>
+      <button onClick={onSave}>Save</button>
+      <button onClick={onLoad}>Load</button>
     </div>
   );
 }

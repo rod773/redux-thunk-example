@@ -24,7 +24,7 @@ export const saveNotes = async (dispatch, getState) => {
 
   const url = "";
 
-  fetch(url, {
+  await fetch(url, {
     method: "POST",
     headers: {
       Accept: "aplication/json",
@@ -32,12 +32,15 @@ export const saveNotes = async (dispatch, getState) => {
     },
     body: JSON.stringify(notes),
   });
+  alert("success");
 };
 
 export const loadNotes = async (dispatch, getState) => {
-  const url = "";
+  const url = "http://localhost:8080/index.php/wp-json/trabajadores/v1/todos";
 
-  const notes = await fetch(url);
+  const notes = await fetch(url).then((res) => res.json());
+
+  console.log(notes);
 
   dispatch(setNotes(notes));
 };

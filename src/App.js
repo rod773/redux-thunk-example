@@ -20,6 +20,9 @@ function App() {
           return <li key={note}>{note}</li>;
         })}
       </ul>
+      <br />
+      <button>Save</button>
+      <button>Load</button>
     </div>
   );
 }

@@ -14,3 +14,7 @@ export const notesReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const saveNotes = (dispatch, getState) => {
+  const notes = getState().notes;
+};

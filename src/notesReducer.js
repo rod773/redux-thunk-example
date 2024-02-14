@@ -1,4 +1,4 @@
-import { ADD_NOTE } from "./actions";
+import { ADD_NOTE, SET_NOTES } from "./actions";
 
 const initialState = {
   notes: [],
@@ -8,6 +8,10 @@ export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE: {
       return { ...state, notes: [...state.notes, action.payload] };
+    }
+
+    case SET_NOTES: {
+      return { ...state, notes: action.payload };
     }
 
     default:
@@ -31,16 +35,9 @@ export const saveNotes = async (dispatch, getState) => {
 };
 
 export const loadNotes = async (dispatch, getState) => {
-  const notes = getState().notes;
-
   const url = "";
 
-  fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "aplication/json",
-      "Content-Type": "aplication/json",
-    },
-    body: JSON.stringify(notes),
-  });
+  const notes = await fetch(url);
+
+  dispatch(setNotes(notes));
 };

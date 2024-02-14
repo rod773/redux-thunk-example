@@ -15,6 +15,32 @@ export const notesReducer = (state = initialState, action) => {
   }
 };
 
-const saveNotes = (dispatch, getState) => {
+export const saveNotes = async (dispatch, getState) => {
   const notes = getState().notes;
+
+  const url = "";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "aplication/json",
+      "Content-Type": "aplication/json",
+    },
+    body: JSON.stringify(notes),
+  });
+};
+
+export const loadNotes = async (dispatch, getState) => {
+  const notes = getState().notes;
+
+  const url = "";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "aplication/json",
+      "Content-Type": "aplication/json",
+    },
+    body: JSON.stringify(notes),
+  });
 };

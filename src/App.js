@@ -1,16 +1,13 @@
-import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const notes = useSelector((state) => state.notes);
+
+  const dispatch = useDispatch();
+
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: "center" }}>
+      <h1>Redux Thunk Example</h1>
     </div>
   );
 }

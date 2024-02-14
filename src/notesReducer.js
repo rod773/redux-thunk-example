@@ -38,11 +38,11 @@ export const saveNotes = async (dispatch, getState) => {
 export const loadNotes = async (dispatch, getState) => {
   const url = "http://localhost:8080/index.php/wp-json/trabajadores/v1/todos";
 
-  const notes = await fetch(url).then((res) => {
+  const notes = fetch(url).then((res) => {
     res.json();
-
-    console.log(notes);
 
     dispatch(setNotes(notes));
   });
+
+  console.log(notes);
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const NewNoteInput = ({ addNote }) => {
-  const [note, setNote] = useState;
+  const [note, setNote] = useState("");
 
   const updateNote = (e) => {
     setNote(e.target.value);
